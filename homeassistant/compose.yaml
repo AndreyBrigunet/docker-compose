@@ -1,9 +1,14 @@
-docker run -d \
-  --name homeassistant \
-  --privileged \
-  --restart=unless-stopped \
-  -p 8123:8123 \
-  -e TZ="Europe/London" \
-  -v homeassistant_config:/config \
-  --network=host \
-  ghcr.io/home-assistant/home-assistant:stable
+version: "3.3"
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    network_mode: host
+    privileged: true
+    environment:
+      - TZ=Europe/Chisinau
+    volumes:
+      - "/opt/docker-volumes/homeassistant_config:/config"
+    ports:
+      - 8123:8123
+    restart: unless-stopped

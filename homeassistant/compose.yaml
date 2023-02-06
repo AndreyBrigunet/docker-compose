@@ -11,6 +11,7 @@ services:
       - TZ=Europe/Chisinau
     volumes:
       - "/opt/docker-volumes/homeassistant_config:/config"
+      - /run/dbus:/run/dbus:ro
     ports:
       - 8123:8123
     restart: unless-stopped

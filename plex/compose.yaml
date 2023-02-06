@@ -1,0 +1,20 @@
+version: "2.1"
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - PLEX_CLAIM= #otional
+    volumes:
+      - /MediaShared/plex_config:/config
+      - /MediaShared/Serials:/serials
+      - /MediaShared/Moves:/movies
+    networks:
+      - localnetwork
+    ports:
+      - 32400:32400  
+    restart: unless-stopped
+ 

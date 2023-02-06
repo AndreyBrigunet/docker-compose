@@ -12,8 +12,6 @@ services:
       - /MediaShared/plex_config:/config
       - /MediaShared/Serials:/serials
       - /MediaShared/Moves:/movies
-    networks:
-      - localnetwork
     ports:
       - 32400:32400  
     restart: unless-stopped

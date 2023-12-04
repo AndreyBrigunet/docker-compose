@@ -35,11 +35,11 @@ When deploying this setup, the web interface will be available on port 80 (e.g. 
 
 ``` shell
 $ docker-compose up -d
-Starting root_zabbix-agent_1    ... done
-Starting root_adminer_1         ... done
-Starting root_postgres-server_1 ... done
-Starting root_zabbix-server_1   ... done
-Starting root_zabbix-web_1      ... done
+Creating network "root_zabbix-net" with driver "bridge"
+Creating root_zabbix-agent_1 ... done
+Creating zabbix-postgres     ... done
+Creating zabbix-server       ... done
+Creating zabbix-web          ... done
 ```
 
 
@@ -48,15 +48,14 @@ Starting root_zabbix-web_1      ... done
 Check containers are running:
 ```
 $ docker ps
-CONTAINER ID   IMAGE                                         COMMAND                  CREATED         STATUS                        PORTS                                                       NAMES
-ac3ecf804815   zabbix/zabbix-web-nginx-pgsql:ubuntu-latest   "docker-entrypoint.sh"   2 minutes ago   Up About a minute             8080/tcp, 8443/tcp, 0.0.0.0:8090->80/tcp, :::8090->80/tcp   root_zabbix-web_1
-0143438f1a2f   zabbix/zabbix-server-pgsql:ubuntu-latest      "/usr/bin/tini -- /u…"   2 minutes ago   Restarting (1) 1 second ago                                                               root_zabbix-server_1
-5ae941ed4719   zabbix/zabbix-agent:latest                    "/sbin/tini -- /usr/…"   2 minutes ago   Up About a minute                                                                         root_zabbix-agent_1
-0fc6abe8708b   postgres:latest                               "docker-entrypoint.s…"   2 minutes ago   Up About a minute             5432/tcp                                                    root_postgres-server_1
-f0dc4bcb8bbf   adminer                                       "entrypoint.sh php -…"   2 minutes ago   Up About a minute             0.0.0.0:8080->8080/tcp, :::8080->8080/tcp                   root_adminer_1
+CONTAINER ID   IMAGE                                         COMMAND                  CREATED          STATUS          PORTS                                                                            NAMES
+eda431ff128b   zabbix/zabbix-web-nginx-pgsql:alpine-latest   "docker-entrypoint.sh"   37 seconds ago   Up 37 seconds   0.0.0.0:80->8080/tcp, :::80->8080/tcp, 0.0.0.0:443->8443/tcp, :::443->8443/tcp   zabbix-web
+6a102987d453   zabbix/zabbix-server-pgsql:alpine-latest      "/sbin/tini -- /usr/…"   38 seconds ago   Up 37 seconds   0.0.0.0:10051->10051/tcp, :::10051->10051/tcp                                    zabbix-server
+7351a3ce4edd   postgres:alpine                               "docker-entrypoint.s…"   39 seconds ago   Up 38 seconds   5432/tcp                                                                         zabbix-postgres
+3a12b3ef4759   zabbix/zabbix-agent:latest                    "/sbin/tini -- /usr/…"   39 seconds ago   Up 39 seconds                                                                                    root_zabbix-agent_1
 ```
 
-Navigate to `http://localhost:9000` in your web browser to access the portainer web interface and create an account.
+Navigate to `http://localhost:80` in your web browser to access the portainer web interface and create an account.
 
 
 Stop the containers with

@@ -48,3 +48,8 @@ services:
     restart: unless-stopped
     environment:
       - ZBX_SERVER_HOST=127.0.0.1 #the IP/Dns of Zabbix server
+  # adminer:  #Optional for accessing databases
+    # image: adminer
+    # restart: always
+    # ports:
+      # - 8080:8080

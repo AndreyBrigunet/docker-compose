@@ -63,6 +63,8 @@ services:
     privileged: true
     network_mode: "host"
     restart: unless-stopped
+    depends_on:
+      - zabbix-server
     environment:
       ZBX_SERVER_HOST: zabbix-server
   # adminer:  #Optional for accessing databases

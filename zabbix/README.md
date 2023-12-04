@@ -64,3 +64,9 @@ $ docker-compose down
 # To delete all data run:
 $ docker-compose down -v
 ```
+
+## Login
+```
+login: Admin
+password: zabbix
+```

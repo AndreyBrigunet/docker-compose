@@ -64,6 +64,12 @@ $ docker-compose down
 # To delete all data run:
 $ docker-compose down -v
 ```
+## on Reboot
+```
+sudo docker start zabbix-postgres
+sudo docker start zabbix-server
+sudo docker start zabbix-web
+```
 
 ## Login
 ```

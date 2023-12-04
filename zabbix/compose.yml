@@ -64,7 +64,7 @@ services:
     network_mode: "host"
     restart: unless-stopped
     environment:
-      ZBX_SERVER_HOST: zabbix-postgres
+      ZBX_SERVER_HOST: zabbix-server
   # adminer:  #Optional for accessing databases
   #   image: adminer
   #   restart: always

@@ -17,6 +17,13 @@ sudo apt install docker.io
 sudo apt install docker-compose
 ```
 
+## add timezone on sistem
+```
+mkdir -p /var/lib/zabbix/
+ln -sf /usr/share/zoneinfo/Europe/Chisinau /var/lib/zabbix/localtime
+echo 'Europe/Chisinau' > /var/lib/zabbix/timezone
+```
+
 ## Download
 ```
 wget https://raw.githubusercontent.com/AndreyBrigunet/docker-compose/master/zabbix/compose.yml

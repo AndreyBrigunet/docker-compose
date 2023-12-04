@@ -61,12 +61,15 @@ services:
   zabbix-agent:
     image: zabbix/zabbix-agent:latest
     privileged: true
-    network_mode: "host"
+    # network_mode: "host"
+    networks:
+      - zabbix-net
     restart: unless-stopped
     depends_on:
       - zabbix-server
     environment:
       ZBX_SERVER_HOST: zabbix-server
+      ZBX_HOSTNAME: Zabbix-Agent
   # adminer:  #Optional for accessing databases
   #   image: adminer
   #   restart: always

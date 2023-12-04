@@ -9,6 +9,11 @@ Project structure:
 └── README.md
 ```
 
+## Download
+```
+wget https://raw.githubusercontent.com/AndreyBrigunet/docker-compose/master/zabbix/compose.yml
+```
+
 
 ## Deploy with docker compose
 When deploying this setup, the web interface will be available on port 80 (e.g. http://localhost:80).

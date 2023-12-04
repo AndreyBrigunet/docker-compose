@@ -11,7 +11,7 @@ Project structure:
 
 
 ## Deploy with docker compose
-When deploying this setup, the web interface will be available on port 9000 (e.g. http://localhost:9000).
+When deploying this setup, the web interface will be available on port 80 (e.g. http://localhost:80).
 
 ``` shell
 $ docker compose up -d

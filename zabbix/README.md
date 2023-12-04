@@ -1,6 +1,6 @@
-## Portainer (CE)
-This example provides a base setup for using [Portainer](https://www.portainer.io/).
-More details on how to customize the installation and the compose file can be found in [portainer documentation](https://documentation.portainer.io/).
+## Zabbix
+This example provides a base setup for using [Zabbix](https://www.zabbix.com/).
+More details on how to customize the installation and the compose file can be found in [zabbix documentation](https://www.zabbix.com/documentation/current/en/manual/installation/containers).
 
 Project structure:
 ```
